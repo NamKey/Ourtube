@@ -6,19 +6,17 @@ const LOGOUT = "/logout";
 const SEARCH = "/search";
 
 //USERS
-
 const USERS = "/users";
 const USER_DETAIL = "/:id";
-const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
+const EDIT_PROFILE = "/edit-profile";
 
 // Videos
-
+const VIDEO_DETAIL = "/:id";
 const VIDEOS = "/videos";
 const UPLOAD = "/upload";
-const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
-const DELETE_VIDEO = ":/id/delete";
+const DELETE_VIDEO = "/:id/delete";
 
 const routes = {
     home: HOME,
@@ -27,14 +25,38 @@ const routes = {
     logout: LOGOUT,
     search: SEARCH,
     users: USERS,
-    userDetail: USER_DETAIL,
-    edtiProfile: EDIT_PROFILE,
+    userDetail: (id) => {
+        if (id) {
+            return `/users/${id}`;
+        } else {
+            return USER_DETAIL;
+        }
+    },
     changePassword: CHANGE_PASSWORD,
+    editProfile: EDIT_PROFILE,
     videos: VIDEOS,
     upload: UPLOAD,
-    videoDetail: VIDEO_DETAIL,
-    editVideo: EDIT_VIDEO,
-    deleteVideo: DELETE_VIDEO,
+    videoDetail: (id) => {
+        if (id) {
+            return `/videos/${id}`;
+        } else {
+            return VIDEO_DETAIL;
+        }
+    },
+    editVideo: (id) => {
+        if (id) {
+            return `/videos/${id}/edit`;
+        } else {
+            return EDIT_VIDEO;
+        }
+    },
+    deleteVideo: (id) => {
+        if (id) {
+            return `/videos/${id}/delete`;
+        } else {
+            return DELETE_VIDEO;
+        }
+    },
 };
 
 export default routes;

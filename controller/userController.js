@@ -1,11 +1,42 @@
-export const join = (req, res) => res.send("Join", { pageTitle: "Join" });
-export const login = (req, res) => res.send("Login", { pageTitle: "Sign In" });
-export const logout = (req, res) =>
-    res.send("Logout", { pageTitle: "Sign Up" });
-export const users = (req, res) => res.send("Users", { pageTitle: "Users" });
+import routes from "../routes";
+
+export const getJoin = (req, res) => {
+    res.render("join", { pageTitle: "Join" });
+};
+
+export const postJoin = (req, res) => {
+    const {
+        body: { name, email, password, verifypassword },
+    } = req;
+    if (password !== verifypassword) {
+        res.status(400);
+        res.render("join", { pageTitle: "Join" });
+    } else {
+        // Todo: Register User
+        // Todo : Signin
+        res.redirect(routes.home);
+    }
+};
+
+export const getLogin = (req, res) =>
+    res.render("login", { pageTitle: "Sign In" });
+
+export const postLogin = (req, res) => {
+    res.redirect(routes.home);
+};
+
+export const logout = (req, res) => {
+    // Todo:process Logout
+    res.redirect(routes.home);
+};
+
+export const users = (req, res) => res.render("Users", { pageTitle: "Users" });
+
 export const userDetail = (req, res) =>
-    res.send("User Detail", { pageTitle: "User Detail" });
+    res.render("userDetail", { pageTitle: "User Detail" });
+
 export const editProfile = (req, res) =>
-    res.send("Edit Profile", { pageTitle: "Edit Profile" });
+    res.render("editProfile", { pageTitle: "Edit Profile" });
+
 export const changePassword = (req, res) =>
-    res.send("Change Password", { pageTitle: "Change Password" });
+    res.render("changePassword", { pageTitle: "Change Password" });
