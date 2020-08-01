@@ -1,0 +1,38 @@
+.user-profile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .user-profile__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15px;
+        .profile__username {
+            font-size: 20px;
+            margin-top: 15px;
+        }
+    }
+    .user-profile__btns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+    .user-profile--uploadedVideos {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(100px, 1fr));
+        grid-gap: 20px;
+        .videoBlock:first-child,
+        .videoBlock:nth-child(2) {
+            grid-column: span 3;
+        }
+        .videoBlock:nth-child(3),
+        .videoBlock:nth-child(4),
+        .videoBlock:nth-child(5) {
+            grid-column: span 2;
+        }
+    }
+}

@@ -10,6 +10,7 @@ const USERS = "/users";
 const USER_DETAIL = "/:id";
 const CHANGE_PASSWORD = "/change-password";
 const EDIT_PROFILE = "/edit-profile";
+const ME = "/me";
 
 // Videos
 const VIDEO_DETAIL = "/:id";
@@ -17,6 +18,15 @@ const VIDEOS = "/videos";
 const UPLOAD = "/upload";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
+
+// API Authentication
+// 1. Github
+const GITHUB = "/auth/github";
+const GITHUB_CALLBACK = "/auth/github/callback";
+// 2. Facebook
+const FACEBOOK = "/auth/facebook";
+const FACEBOOK_CALLBACK = "/auth/facebook/callback";
+// 3. Google
 
 const routes = {
     home: HOME,
@@ -57,6 +67,11 @@ const routes = {
             return DELETE_VIDEO;
         }
     },
+    github: GITHUB,
+    githubCallback: GITHUB_CALLBACK,
+    facebook: FACEBOOK,
+    facebookCallback: FACEBOOK_CALLBACK,
+    me: ME,
 };
 
 export default routes;
