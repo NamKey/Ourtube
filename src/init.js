@@ -12,6 +12,6 @@ import "./models/User";
 const PORT = process.env.PORT || 4000;
 
 const handleListening = () =>
-    console.log(`Listen on: http://localhost:${PORT}`);
+    console.log(`Listen on: https://safe-peak-54080.herokuapp.com:${PORT}`);
 
 app.listen(PORT, handleListening);
