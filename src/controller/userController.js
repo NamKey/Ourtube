@@ -11,6 +11,7 @@ export const postJoin = async (req, res, next) => {
         body: { name, email, password, verifypassword },
     } = req;
     if (password !== verifypassword) {
+        req.flash("error", "Password don't matched");
         res.status(400);
         res.render("join", { pageTitle: "Join" });
     } else {
@@ -38,6 +39,8 @@ export const getLogin = (req, res) =>
 export const postLogin = passport.authenticate("local", {
     failureRedirect: routes.login,
     successRedirect: routes.home,
+    successFlash: "Welcome",
+    failureFlash: "Check email or password",
 });
 
 export const githubLogin = passport.authenticate("github");
@@ -92,7 +95,7 @@ export const postFacebookLogin = (req, res) => {
 // export const googleLoginCallback
 
 export const logout = (req, res) => {
-    // Todo:process Logout
+    req.flash("info", "LogOut Successfully");
     req.logout();
     res.redirect(routes.home);
 };
@@ -111,7 +114,7 @@ export const userDetail = async (req, res) => {
         console.log(user);
         res.render("userDetail", { pageTitle: "User Detail", user });
     } catch (error) {
-        console.log(error);
+        req.flash("error", "User not found");
         res.redirect(routes.home);
     }
 };
@@ -130,6 +133,7 @@ export const postEditProfile = async (req, res) => {
             email,
             avatarURL: file ? file.location : req.user.avatarURL,
         });
+        req.flash("success", "Update Successfully");
         res.redirect(routes.me);
     } catch (error) {
         console.log(error);
