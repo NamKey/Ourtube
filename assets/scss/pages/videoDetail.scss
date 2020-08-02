@@ -37,9 +37,30 @@
         }
     }
     .video__comments {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         margin-top: 25px;
-        .video__comment-number {
-            font-size: 15px;
+        span {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .add__comment {
+            margin-top: 10px;
+        }
+        .video__comment-list {
+            margin-top: 10px;
+            li {
+                background-color: #3498db;
+                padding: 10px 20px;
+                color: white;
+                border-radius: 50px;
+                border-top-left-radius: 0px;
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
+            }
         }
     }
 }

@@ -19,7 +19,12 @@ const UPLOAD = "/upload";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";
 
-// API Authentication
+// API
+const API = "/api";
+const REGISTER_VIEW = "/:id/view";
+const ADD_COMMNET = "/:id/comment";
+
+// Authentication
 // 1. Github
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
@@ -72,6 +77,9 @@ const routes = {
     facebook: FACEBOOK,
     facebookCallback: FACEBOOK_CALLBACK,
     me: ME,
+    api: API,
+    registerView: REGISTER_VIEW,
+    addComment: ADD_COMMNET,
 };
 
 export default routes;
