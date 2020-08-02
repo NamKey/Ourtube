@@ -16,7 +16,7 @@ passport.use(
         {
             clientID: process.env.GH_ID,
             clientSecret: process.env.GH_SECRET,
-            callbackURL: `https://safe-peak-54080.herokuapp.com/${routes.githubCallback}`,
+            callbackURL: `https://safe-peak-54080.herokuapp.com${routes.githubCallback}`,
         },
         githubLoginCallback
     )
@@ -27,7 +27,7 @@ passport.use(
         {
             clientID: process.env.FB_ID,
             clientSecret: process.env.FB_SECRET,
-            callbackURL: `http://localhost:4000${routes.facebookCallback}`,
+            callbackURL: `https://safe-peak-54080.herokuapp.com${routes.facebookCallback}`,
         },
         facebookLoginCallback
     )
