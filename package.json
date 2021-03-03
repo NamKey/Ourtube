@@ -39,7 +39,7 @@
         "passport-local-mongoose": "^6.0.1",
         "postcss-cli": "^7.1.1",
         "postcss-loader": "^3.0.0",
-        "pug": "^3.0.0",
+        "pug": "^3.0.1",
         "sass-loader": "^9.0.2",
         "webpack": "^4.36.1",
         "webpack-cli": "^3.3.12"
